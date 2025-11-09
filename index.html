@@ -5,35 +5,33 @@
   <title>보선녀 오늘의 운세</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard", system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
-    body {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: radial-gradient(circle at top, #ffe9f3, #f5f7ff, #e4f3ff);
-    }
-    .app { width: min(420px, 92vw); padding: 24px 22px 20px; border-radius: 24px; background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12); backdrop-filter: blur(10px); text-align: center; position: relative; overflow: hidden; }
-    .logo-wrap { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-    .logo-icon { width: 26px; height: 26px; border-radius: 999px; background: radial-gradient(circle at 30% 0%, #ffd6f2, #ff8fb3, #ffb86c);
-      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #ffffff; box-shadow: 0 4px 10px rgba(255, 143, 179, 0.5);}
-    .logo-text { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #ff7aa2; font-weight: 700; }
-    .title { font-size: 20px; font-weight: 700; color: #222; margin-bottom: 4px; }
-    .subtitle { font-size: 12px; color: #777; margin-bottom: 14px; }
-    .fortune-label { font-size: 11px; font-weight: 600; color: #ff7aa2; margin-bottom: 4px; text-transform: uppercase; }
-    .fortune-text { font-size: 14px; color: #333; margin-bottom: 12px; line-height: 1.6; padding: 10px 12px; border-radius: 14px; background: #fff7fb; border: 1px solid #ffe2f1; }
-    .song-box-label { font-size: 11px; font-weight: 600; color: #7d8cff; margin-bottom: 4px; text-transform: uppercase; }
-    .song-box { padding: 10px 12px 9px; border-radius: 14px; background: #f3f6ff; border: 1px solid #dde5ff; margin-bottom: 8px; text-align: left; }
-    .song-title { font-size: 14px; font-weight: 700; color: #343b7b; margin-bottom: 4px; }
-    .song-line { font-size: 12px; color: #555; line-height: 1.6; }
-    .extra-wrap { display: flex; gap: 8px; margin: 8px 0 10px; font-size: 11px; }
-    .extra-box { flex: 1; padding: 8px 9px; border-radius: 12px; background: #ffffff; border: 1px solid #eee; text-align: left; }
-    .extra-label { font-size: 9px; font-weight: 600; color: #aaa; margin-bottom: 3px; text-transform: uppercase; }
-    .extra-value { font-size: 12px; font-weight: 600; color: #444; }
-    .meta { font-size: 9px; color: #999; margin-bottom: 8px; min-height: 14px; }
-    .btn { width: 100%; padding: 10px 0; border: none; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer;
-      background: linear-gradient(90deg, #ff8fb3, #ffb86c); color: #fff; box-shadow: 0 8px 20px rgba(255, 143, 179, 0.35); transition: all 0.18s ease; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(255, 143, 179, 0.4); }
-    .btn.disabled { background: #ddd; color: #888; box-shadow: none; cursor: default; transform: none; }
-    .credit { font-size: 9px; color: #bbb; margin-top: 4px; }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Pretendard",system-ui,sans-serif;}
+    body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at top,#ffe9f3,#f5f7ff,#e4f3ff);}
+    .app{width:min(420px,92vw);padding:24px 22px 20px;border-radius:24px;background:rgba(255,255,255,0.9);
+      box-shadow:0 14px 40px rgba(0,0,0,0.12);backdrop-filter:blur(10px);text-align:center;}
+    .logo-wrap{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;}
+    .logo-icon{width:26px;height:26px;border-radius:999px;background:radial-gradient(circle at 30% 0%,#ffd6f2,#ff8fb3,#ffb86c);
+      display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-shadow:0 4px 10px rgba(255,143,179,0.5);}
+    .logo-text{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#ff7aa2;font-weight:700;}
+    .title{font-size:20px;font-weight:700;color:#222;margin-bottom:4px;}
+    .subtitle{font-size:12px;color:#777;margin-bottom:14px;}
+    .fortune-label{font-size:11px;font-weight:600;color:#ff7aa2;margin-bottom:4px;text-transform:uppercase;}
+    .fortune-text{font-size:14px;color:#333;margin-bottom:12px;line-height:1.6;padding:10px 12px;border-radius:14px;background:#fff7fb;border:1px solid #ffe2f1;}
+    .song-box-label{font-size:11px;font-weight:600;color:#7d8cff;margin-bottom:4px;text-transform:uppercase;}
+    .song-box{padding:10px 12px 9px;border-radius:14px;background:#f3f6ff;border:1px solid #dde5ff;margin-bottom:8px;text-align:left;}
+    .song-title{font-size:14px;font-weight:700;color:#343b7b;margin-bottom:4px;}
+    .song-line{font-size:12px;color:#555;line-height:1.6;}
+    .extra-wrap{display:flex;gap:8px;margin:8px 0 10px;font-size:11px;}
+    .extra-box{flex:1;padding:8px 9px;border-radius:12px;background:#fff;border:1px solid #eee;text-align:left;}
+    .extra-label{font-size:9px;font-weight:600;color:#aaa;margin-bottom:3px;text-transform:uppercase;}
+    .extra-value{font-size:12px;font-weight:600;color:#444;}
+    .meta{font-size:9px;color:#999;margin-bottom:8px;min-height:14px;}
+    .btn{width:100%;padding:10px 0;border:none;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;
+      background:linear-gradient(90deg,#ff8fb3,#ffb86c);color:#fff;box-shadow:0 8px 20px rgba(255,143,179,0.35);transition:all 0.18s ease;}
+    .btn:hover{transform:translateY(-1px);}
+    .btn.disabled{background:#ddd;color:#888;cursor:default;}
+    .reset-btn{margin-top:8px;background:linear-gradient(90deg,#c2c2c2,#a0a0a0);box-shadow:none;font-size:11px;}
+    .credit{font-size:9px;color:#bbb;margin-top:4px;}
   </style>
 </head>
 <body>
@@ -41,13 +39,16 @@
     <div class="logo-wrap"><div class="logo-icon">仙</div><div class="logo-text">BOSUNNYEO FORTUNE</div></div>
     <div class="title">오늘의 운세는</div>
     <div class="subtitle">하루 1번, 보선녀가 점지한 운세 & 노래 🎧</div>
+
     <div class="fortune-label">fortune</div>
-    <div id="fortune" class="fortune-text">아래 버튼을 눌러 오늘 당신의 운세를 불러와 주이소 ✨</div>
+    <div id="fortune" class="fortune-text">아래 버튼을 눌러 오늘의 운세를 확인하시오 ✨</div>
+
     <div class="song-box-label">song of the day</div>
     <div class="song-box">
-      <div id="song-title" class="song-title">추천 노래 제목이 여기에 표시된당께요</div>
-      <div id="song-line" class="song-line">한 소절 가사가 여기에 표시됩니더 (보선녀 감성)</div>
+      <div id="song-title" class="song-title">추천 노래 제목</div>
+      <div id="song-line" class="song-line">한 소절 가사가 여기에 표시됩니다</div>
     </div>
+
     <div class="extra-wrap">
       <div class="extra-box">
         <div class="extra-label">lucky color</div>
@@ -58,70 +59,42 @@
         <div id="lucky-animal" class="extra-value">오늘의 동물 친구</div>
       </div>
     </div>
+
     <div id="meta" class="meta">하루 1회 뽑기 · 첫 사용 대기 중...</div>
+
     <button id="fortune-btn" class="btn" onclick="generateFortune()">오늘의 운세 뽑기 🔮 (하루 1번)</button>
+    <button id="reset-btn" class="btn reset-btn" onclick="resetFortune()">🔐 보선녀 전용 초기화</button>
+
     <div class="credit">Made with 💖 by 보선녀</div>
   </div>
 
   <script>
-    const data = [
-      {fortune: "오늘 머리에서 말린 오징어 냄새가 나는 날이네요. 머리좀 빡빡 감으시길..", songTitle: "《오징어외계인》-이글파이브", songLine: "그의 먹물 쏴아쏴아 윽!"},
-      {fortune: "머뭇거리면, 쟁취할 수 없지요. 망설이지 말도록 노력하세요.", songTitle: "《딸기》-삐삐밴드", songLine: "좋아 좋아 좋아 딸기가 좋아"},
-      {fortune: "오늘 돈이랑 당신 조금 관련 있어 보이는데요? 혼자 쓸 생각 말고 친구들에게도 나눠주시라구요!!", songTitle: "《나만의 회상》-아낌없이 주는 나무", songLine: "세월이 흐르면 사랑의 그리움도 아름답게 기억하겠지."},
-      {fortune: "오늘 화나는 일이 있었나요? 아니면 곧 생길 것 같은데ㅋ, 이런 날에는 화를 분출하는 것도 좋은 방법이라구여...", songTitle: "《나이가 든다는게 화가 나》-김충훈", songLine: "늙어간다는게 창피한게 아닌데~"}
-    ];
-
-    const luckyColors = [
-      "복숭아 핑크","라일락 퍼플","에메랄드 그린","크림 베이지","하늘빛 블루","선셋 오렌지","매혹적인 빨강",
-      "새초롬한 주황","your 오줌 like 노랑","늠름한 초록","아리따운 바다","행복한 브라운","수상한 하늘","자색고구마의 껍질",
-      "그레이새끼야","감자같은 니얼굴","똥 못쌌어요? 얼굴색이.. 창백한 연두색","말차의 아름다움","딸기라떼의 외로움","봄냄새나는 들꽃 핑크"
-    ];
-
-    const luckyAnimals = [
-      "고양이","강아지","토끼","코끼리","대머리독수리","너구리","드래곤","용가리","펭귄","피카츄","고래","부엉이","수달","사슴","알파카","청룡","백호","주작","현무"
-    ];
-
-    const animalEmojis = {
-      "고양이":"🐱","강아지":"🐶","토끼":"🐰","코끼리":"🐘","대머리독수리":"🦅","너구리":"🦝","드래곤":"🐲","용가리":"🐉","펭귄":"🐧","피카츄":"⚡","고래":"🐋","부엉이":"🦉","수달":"🦦","사슴":"🦌","알파카":"🦙","청룡":"🐉","백호":"🐯","주작":"🔥","현무":"🐢"
-    };
-
     const STORAGE_KEY = "bosunnyeo_fortune_v1";
 
-    function getTodayKey(){
-      const now=new Date();
-      return now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0");
-    }
+    const data = [
+      {fortune:"오늘은 기분이 들떠서 깃털처럼 가벼운 하루예요!",songTitle:"《딸기》 - 삐삐밴드",songLine:"좋아 좋아 딸기가 좋아"},
+      {fortune:"머리에서 말린 오징어 냄새가 나는 날이에요. 머리 좀 감으세요ㅋㅋ",songTitle:"《오징어외계인》 - 이글파이브",songLine:"그의 먹물 쏴아쏴아 윽!"},
+      {fortune:"당신의 웃음은 오늘 가장 큰 무기입니다. 웃으면 복이 와요.",songTitle:"《So Hot》 - 원더걸스",songLine:"I'm so hot 난 너무 예뻐요"},
+      {fortune:"오늘은 새로운 시작의 기운이 강합니다. 망설이지 마세요!",songTitle:"《WHEN I MOVE》 - KARA",songLine:"When I move, 너의 손을 잡고"}
+    ];
 
-    function getRandomIndex(len){if(window.crypto&&window.crypto.getRandomValues){const a=new Uint32Array(1);window.crypto.getRandomValues(a);return a[0]%len;}return Math.floor(Math.random()*len);}
+    const luckyColors = ["복숭아 핑크","라일락 퍼플","에메랄드 그린","하늘빛 블루","선셋 오렌지","말차의 아름다움","봄냄새나는 들꽃 핑크"];
+    const luckyAnimals = ["고양이","강아지","토끼","용가리","드래곤","수달","펭귄","사슴"];
+    const animalEmojis = {"고양이":"🐱","강아지":"🐶","토끼":"🐰","용가리":"🐉","드래곤":"🐲","수달":"🦦","펭귄":"🐧","사슴":"🦌"};
 
-    function applyFortune(d,meta){
-      document.getElementById("fortune").textContent=d.fortune;
-      document.getElementById("song-title").textContent=d.songTitle;
-      document.getElementById("song-line").textContent=d.songLine;
-      document.getElementById("lucky-color").textContent=d.luckyColor;
-      document.getElementById("lucky-animal").textContent=d.luckyAnimal;
-      if(meta){
-        const now=new Date();
-        document.getElementById("meta").textContent="랜덤 운세 확정 시간 : "+now.toLocaleString("ko-KR");
-      }
-    }
+    function getTodayKey(){const n=new Date();return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");}
+    function getRandomIndex(l){if(window.crypto&&window.crypto.getRandomValues){const a=new Uint32Array(1);window.crypto.getRandomValues(a);return a[0]%l;}return Math.floor(Math.random()*l);}
+    function applyFortune(d,meta){document.getElementById("fortune").textContent=d.fortune;document.getElementById("song-title").textContent=d.songTitle;document.getElementById("song-line").textContent=d.songLine;document.getElementById("lucky-color").textContent=d.luckyColor;document.getElementById("lucky-animal").textContent=d.luckyAnimal;if(meta){document.getElementById("meta").textContent="확정 시간: "+new Date().toLocaleString("ko-KR");}}
 
     function generateFortune(){
       const today=getTodayKey();
       const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null");
-      if(saved&&saved.date===today){
-        applyFortune(saved,false);
-        document.getElementById("fortune-btn").classList.add("disabled");
-        document.getElementById("fortune-btn").textContent="오늘 운세는 이미 정해졌어요 🔒";
-        document.getElementById("meta").textContent="오늘 것은 오늘 것! 내일 다시 오세요ㅋ 🌙";
-        return;
-      }
+      if(saved&&saved.date===today){applyFortune(saved,false);document.getElementById("fortune-btn").classList.add("disabled");document.getElementById("fortune-btn").textContent="오늘 운세는 이미 정해졌어요 🔒";return;}
       const pick=data[getRandomIndex(data.length)];
       const color=luckyColors[getRandomIndex(luckyColors.length)];
       const animalRaw=luckyAnimals[getRandomIndex(luckyAnimals.length)];
       const emoji=animalEmojis[animalRaw]||"✨";
       const animal=emoji+" "+animalRaw;
-
       const result={date:today,fortune:pick.fortune,songTitle:pick.songTitle,songLine:pick.songLine,luckyColor:color,luckyAnimal:animal};
       localStorage.setItem(STORAGE_KEY,JSON.stringify(result));
       applyFortune(result,true);
@@ -129,7 +102,26 @@
       document.getElementById("fortune-btn").textContent="오늘 운세는 완료되었습니다 🔒";
     }
 
-    (function(){const s=JSON.parse(localStorage.getItem(STORAGE_KEY));const t=getTodayKey();if(s&&s.date===t){applyFortune(s,false);document.getElementById("fortune-btn").classList.add("disabled");document.getElementById("fortune-btn").textContent="오늘 운세는 이미 점지되었습니다 🔒";document.getElementById("meta").textContent=`오늘(${t}) 운세는 이미 보선녀가 점지했어요.`;}})();
+    function resetFortune(){
+      const pw=prompt("🔐 보선녀 비밀번호를 입력하세요:");
+      if(pw==="0405"){
+        localStorage.removeItem(STORAGE_KEY);
+        alert("✅ 초기화 완료! 새 운세를 다시 뽑을 수 있습니다.");
+        location.reload();
+      } else if(pw!==null){
+        alert("❌ 비밀번호가 틀렸습니다. 접근 불가!");
+      }
+    }
+
+    (function(){
+      const s=JSON.parse(localStorage.getItem(STORAGE_KEY));
+      const t=getTodayKey();
+      if(s&&s.date===t){
+        applyFortune(s,false);
+        document.getElementById("fortune-btn").classList.add("disabled");
+        document.getElementById("fortune-btn").textContent="오늘 운세는 이미 점지되었습니다 🔒";
+      }
+    })();
   </script>
 </body>
 </html>
