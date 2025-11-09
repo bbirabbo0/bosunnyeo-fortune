@@ -258,28 +258,145 @@
       {fortune:"오늘 스스로에 대한 점수가 낮게 느껴질 수도 있어요. 근데 이미 만점이에요.",songTitle:"《못난이 콤플렉스》-영턱스클럽",songLine:"그래도 넌 참 소중한 사람"}
     ];
 
-    const luckyColors = ["복숭아 핑크","라일락 퍼플","에메랄드 그린","하늘빛 블루","선셋 오렌지","매혹적인 빨강","말차의 아름다움","봄냄새나는 들꽃 핑크"];
-    const luckyAnimals = ["고양이","강아지","토끼","용가리","드래곤","수달","펭귄","사슴","너구리","코끼리"];
-    const animalEmojis = {"고양이":"🐱","강아지":"🐶","토끼":"🐰","용가리":"🐉","드래곤":"🐲","수달":"🦦","펭귄":"🐧","사슴":"🦌","너구리":"🦝","코끼리":"🐘"};
+    const luckyColors = [
+      "복숭아 핑크", "라일락 퍼플", "에메랄드 그린",
+      "크림 베이지", "하늘빛 블루", "선셋 오렌지",
+      "매혹적인 빨강", "새초롬한 주황", "your 오줌 like 노랑",
+      "늠름한 초록", "아리따운 바다", "행복한 브라운",
+      "수상한 하늘", "자색고구마의 껍질", "그레이새끼야",
+      "감자같은 니얼굴",
+      "똥 못쌌어요? 얼굴색이.. 창백한 연두색",
+      "말차의 아름다움", "딸기라떼의 외로움",
+      "색을 빼앗겨버린 연한 레드",
+      "오렌지업 오렌지업",
+      "개나리 개나리 너는 나의 것",
+      "쑥스럼 많은 그린", "용감한 블루",
+      "무서운 마녀의 립스틱 색은 퍼플",
+      "조심해, 분홍은 나의 팬티",
+      "속삭이는 그대의 입맞춤은 어둡다. 블랙",
+      "레이디버그의 남편은 블랙",
+      "넌 누구니 이슬이의 팬티는 하양색",
+      "밤하늘 네이비", "민트그린", "로즈골드", "화이트 아이보리",
+      "코코넛 밀크 화이트", "복숭아뼈의 분홍",
+      "포근한 이불색", "미소 짓는 라벤더",
+      "잔망한 체리블라썸", "달콤한 솜사탕 민트",
+      "쑥떡의 부드러움", "다정한 연보라",
+      "너도나도 레드", "나 오늘 좀 예쁨 베이지",
+      "눈치 없는 블루",
+      "피곤한 회사원 회색",
+      "불타는 고추장색",
+      "이빨색 베이지",
+      "새벽 안개의 옅은 회색",
+      "잊혀진 달빛 블루",
+      "꿈결의 라일락",
+      "마음속 틈새 네이비",
+      "눈물 한 방울 연청색",
+      "파릇한 파김치 초록",
+      "대나무숲 속의 바람색",
+      "따뜻한 흙의 갈색",
+      "가을 끝자락 노을빛",
+      "봄냄새나는 들꽃 핑크"
+    ];
 
-    function getTodayKey(){const n=new Date();return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");}
-    function getRandomIndex(l){if(window.crypto&&window.crypto.getRandomValues){const a=new Uint32Array(1);window.crypto.getRandomValues(a);return a[0]%l;}return Math.floor(Math.random()*l);}
-    function applyFortune(d,meta){document.getElementById("fortune").textContent=d.fortune;document.getElementById("song-title").textContent=d.songTitle;document.getElementById("song-line").textContent=d.songLine;document.getElementById("lucky-color").textContent=d.luckyColor;document.getElementById("lucky-animal").textContent=d.luckyAnimal;if(meta){document.getElementById("meta").textContent="확정 시간: "+new Date().toLocaleString("ko-KR");}}
+    // ==== 행운의 동물 풀버전 ====
+    const luckyAnimals = [
+      "고양이","강아지","토끼","코끼리","대머리독수리","고릴라","비버","젖소","너구리","타조",
+      "후라이드치킨","불닭볶음면","불곰","참치","악어","까치","늑대","기니피그","치타","고라니",
+      "낙지","공작새","여우","판다","고래","부엉이","수달","고슴도치","참새","두더지","사슴",
+      // 보선녀 확장판
+      "드래곤","용가리","피카츄","젤리곰","팬더곰","펭귄","알파카","두루미","코알라","앵무새",
+      "물범","너드돼지","코뿔소","햄스터","돌고래","펜도라여우","초콜릿하이에나","수줍은 하마",
+      "깡총깡총 사슴벌레","도도새","고등어","연어","치킨너겟","청룡","백호","주작","현무",
+      "붕어빵","타코야끼문어","단짠감자","수박펭귄","흰수염고래","해달","돌핀보이","청설모",
+      "반짝이는 메추라기","계란말이앵무","나태한 달팽이","엉뚱한 오리너구리","스윗베이비호랑이",
+      "작고 소심한 너구리","냉면사슴","커피마시는 곰","치즈냠냠쥐","라면수달","가오리","도롱뇽",
+      "꿀벌","나방","거북이","참새의 사촌","리듬타는 앵무새","우아한 백조","망상하는 금붕어"
+    ];
 
-    function generateFortune(){
-      const today=getTodayKey();
-      const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null");
-      if(saved&&saved.date===today){applyFortune(saved,false);document.getElementById("fortune-btn").classList.add("disabled");document.getElementById("fortune-btn").textContent="오늘 운세는 이미 정해졌어요 🔒";return;}
-      const pick=data[getRandomIndex(data.length)];
-      const color=luckyColors[getRandomIndex(luckyColors.length)];
-      const animalRaw=luckyAnimals[getRandomIndex(luckyAnimals.length)];
-      const emoji=animalEmojis[animalRaw]||"✨";
-      const animal=emoji+" "+animalRaw;
-      const result={date:today,fortune:pick.fortune,songTitle:pick.songTitle,songLine:pick.songLine,luckyColor:color,luckyAnimal:animal};
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(result));
-      applyFortune(result,true);
-      document.getElementById("fortune-btn").classList.add("disabled");
-      document.getElementById("fortune-btn").textContent="오늘 운세는 완료되었습니다 🔒";
+    // ==== 동물 → 이모지 (없는 애는 ✨ 자동) ====
+    const animalEmojis = {
+      "고양이":"🐱","강아지":"🐶","토끼":"🐰","코끼리":"🐘",
+      "대머리독수리":"🦅","고릴라":"🦍","비버":"🦫","젖소":"🐄",
+      "너구리":"🦝","타조":"🐦","후라이드치킨":"🍗","불닭볶음면":"🍜",
+      "불곰":"🐻","참치":"🐟","악어":"🐊","까치":"🐦",
+      "늑대":"🐺","기니피그":"🐹","치타":"🐆","고라니":"🦌",
+      "낙지":"🐙","공작새":"🦚","여우":"🦊","판다":"🐼",
+      "고래":"🐋","부엉이":"🦉","수달":"🦦","고슴도치":"🦔",
+      "참새":"🐤","두더지":"🐾","사슴":"🦌",
+      "드래곤":"🐲","용가리":"🐉","피카츄":"⚡","젤리곰":"🧸",
+      "펭귄":"🐧","알파카":"🦙","코알라":"🐨","앵무새":"🦜",
+      "물범":"🦭","햄스터":"🐹","돌고래":"🐬",
+      "꿀벌":"🐝","거북이":"🐢","우아한 백조":"🦢",
+      "망상하는 금붕어":"🐠"
+    };
+
+    function getTodayKey() {
+      const now = new Date();
+      return (
+        now.getFullYear() + "-" +
+        String(now.getMonth() + 1).padStart(2, "0") + "-" +
+        String(now.getDate()).padStart(2, "0")
+      );
+    }
+
+    function getRandomIndex(length) {
+      if (window.crypto && window.crypto.getRandomValues) {
+        const arr = new Uint32Array(1);
+        window.crypto.getRandomValues(arr);
+        return arr[0] % length;
+      }
+      return Math.floor(Math.random() * length);
+    }
+
+    function applyFortune(dataObj, withMeta) {
+      document.getElementById("fortune").textContent = dataObj.fortune;
+      document.getElementById("song-title").textContent = dataObj.songTitle;
+      document.getElementById("song-line").textContent = dataObj.songLine;
+      document.getElementById("lucky-color").textContent = dataObj.luckyColor;
+      document.getElementById("lucky-animal").textContent = dataObj.luckyAnimal;
+
+      if (withMeta) {
+        const now = new Date();
+        const timeString = now.toLocaleString("ko-KR");
+        document.getElementById("meta").textContent =
+          `랜덤 운세 확정 시간 : ${timeString}`;
+      }
+    }
+
+    function generateFortune() {
+      const btn = document.getElementById("fortune-btn");
+      const today = getTodayKey();
+
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved && saved.date === today) {
+        applyFortune(saved, false);
+        btn.classList.add("disabled");
+        btn.textContent = "오늘 운세는 이미 정해졌어요 🔒";
+        document.getElementById("meta").textContent =
+          `오늘 것은 오늘 것! 내일 다시 오세요ㅋ 욕심꾸러기 같으니라고 🌙`;
+        return;
+      }
+
+      const pick = data[getRandomIndex(data.length)];
+      const color = luckyColors[getRandomIndex(luckyColors.length)];
+      const rawAnimal = luckyAnimals[getRandomIndex(luckyAnimals.length)];
+      const emoji = animalEmojis[rawAnimal] || "✨";
+      const animal = `${emoji} ${rawAnimal}`;
+
+      const result = {
+        date: today,
+        fortune: pick.fortune,
+        songTitle: pick.songTitle,
+        songLine: pick.songLine,
+        luckyColor: color,
+        luckyAnimal: animal
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+      applyFortune(result, true);
+
+      btn.classList.add("disabled");
+      btn.textContent = "오늘 운세는 완료되었습니다 🔒";
     }
 
     function resetFortune() {
@@ -293,13 +410,14 @@
       }
     }
 
-    (function(){
-      const s=JSON.parse(localStorage.getItem(STORAGE_KEY));
-      const t=getTodayKey();
-      if(s&&s.date===t){
-        applyFortune(s,false);
-        document.getElementById("fortune-btn").classList.add("disabled");
-        document.getElementById("fortune-btn").textContent="오늘 운세는 이미 점지되었습니다 🔒";
+    (function () {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      const today = getTodayKey();
+      if (saved && saved.date === today) {
+        applyFortune(saved, false);
+        const btn = document.getElementById("fortune-btn");
+        btn.classList.add("disabled");
+        btn.textContent = "오늘 운세는 이미 점지되었습니다 🔒";
       }
     })();
   </script>
