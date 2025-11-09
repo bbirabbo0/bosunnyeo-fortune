@@ -5,38 +5,200 @@
   <title>보선녀 오늘의 운세</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;font-family:"Pretendard",system-ui,sans-serif;}
-    body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at top,#ffe9f3,#f5f7ff,#e4f3ff);}
-    .app{width:min(420px,92vw);padding:24px 22px 20px;border-radius:24px;background:rgba(255,255,255,0.9);
-      box-shadow:0 14px 40px rgba(0,0,0,0.12);backdrop-filter:blur(10px);text-align:center;}
-    .logo-wrap{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;}
-    .logo-icon{width:26px;height:26px;border-radius:999px;background:radial-gradient(circle at 30% 0%,#ffd6f2,#ff8fb3,#ffb86c);
-      display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-shadow:0 4px 10px rgba(255,143,179,0.5);}
-    .logo-text{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#ff7aa2;font-weight:700;}
-    .title{font-size:20px;font-weight:700;color:#222;margin-bottom:4px;}
-    .subtitle{font-size:12px;color:#777;margin-bottom:14px;}
-    .fortune-label{font-size:11px;font-weight:600;color:#ff7aa2;margin-bottom:4px;text-transform:uppercase;}
-    .fortune-text{font-size:14px;color:#333;margin-bottom:12px;line-height:1.6;padding:10px 12px;border-radius:14px;background:#fff7fb;border:1px solid #ffe2f1;}
-    .song-box-label{font-size:11px;font-weight:600;color:#7d8cff;margin-bottom:4px;text-transform:uppercase;}
-    .song-box{padding:10px 12px 9px;border-radius:14px;background:#f3f6ff;border:1px solid #dde5ff;margin-bottom:8px;text-align:left;}
-    .song-title{font-size:14px;font-weight:700;color:#343b7b;margin-bottom:4px;}
-    .song-line{font-size:12px;color:#555;line-height:1.6;}
-    .extra-wrap{display:flex;gap:8px;margin:8px 0 10px;font-size:11px;}
-    .extra-box{flex:1;padding:8px 9px;border-radius:12px;background:#fff;border:1px solid #eee;text-align:left;}
-    .extra-label{font-size:9px;font-weight:600;color:#aaa;margin-bottom:3px;text-transform:uppercase;}
-    .extra-value{font-size:12px;font-weight:600;color:#444;}
-    .meta{font-size:9px;color:#999;margin-bottom:8px;min-height:14px;}
-    .btn{width:100%;padding:10px 0;border:none;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;
-      background:linear-gradient(90deg,#ff8fb3,#ffb86c);color:#fff;box-shadow:0 8px 20px rgba(255,143,179,0.35);transition:all 0.18s ease;}
-    .btn:hover{transform:translateY(-1px);}
-    .btn.disabled{background:#ddd;color:#888;cursor:default;}
-    .reset-btn{margin-top:8px;background:linear-gradient(90deg,#c2c2c2,#a0a0a0);box-shadow:none;font-size:11px;}
-    .credit{font-size:9px;color:#bbb;margin-top:4px;}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard", system-ui, -apple-system, sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #ffe9f3, #f5f7ff, #e4f3ff);
+    }
+    .app {
+      width: min(420px, 92vw);
+      padding: 24px 22px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .logo-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #ffd6f2, #ff8fb3, #ffb86c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(255, 143, 179, 0.5);
+    }
+    .logo-text {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ff7aa2;
+      font-weight: 700;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 14px;
+    }
+    .fortune-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #ff7aa2;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .fortune-text {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 12px;
+      line-height: 1.6;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #fff7fb;
+      border: 1px solid #ffe2f1;
+    }
+    .song-box-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7d8cff;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .song-box {
+      padding: 10px 12px 9px;
+      border-radius: 14px;
+      background: #f3f6ff;
+      border: 1px solid #dde5ff;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .song-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #343b7b;
+      margin-bottom: 4px;
+    }
+    .song-line {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.6;
+    }
+    .extra-wrap {
+      display: flex;
+      gap: 8px;
+      margin: 8px 0 10px;
+      font-size: 11px;
+    }
+    .extra-box {
+      flex: 1;
+      padding: 8px 9px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #eee;
+      text-align: left;
+    }
+    .extra-label {
+      font-size: 9px;
+      font-weight: 600;
+      color: #aaa;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+    .extra-value {
+      font-size: 12px;
+      font-weight: 600;
+      color: #444;
+    }
+    .meta {
+      font-size: 9px;
+      color: #999;
+      margin-bottom: 8px;
+      min-height: 14px;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ff8fb3, #ffb86c);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 143, 179, 0.35);
+      transition: all 0.18s ease;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+    .btn.disabled {
+      background: #ddd;
+      color: #888;
+      cursor: default;
+    }
+
+    .reset-btn {
+      margin-top: 10px;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ffa1b5, #ffb86c);
+      box-shadow: 0 4px 14px rgba(255, 143, 179, 0.3);
+      transition: all 0.25s ease;
+    }
+    .reset-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff7aa2, #ffc06e);
+      box-shadow: 0 6px 20px rgba(255, 143, 179, 0.45);
+    }
+    .reset-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .credit {
+      font-size: 9px;
+      color: #bbb;
+      margin-top: 4px;
+    }
   </style>
 </head>
+
 <body>
   <div class="app">
-    <div class="logo-wrap"><div class="logo-icon">仙</div><div class="logo-text">BOSUNNYEO FORTUNE</div></div>
+    <div class="logo-wrap">
+      <div class="logo-icon">仙</div>
+      <div class="logo-text">BOSUNNYEO FORTUNE</div>
+    </div>
+
     <div class="title">오늘의 운세는</div>
     <div class="subtitle">하루 1번, 보선녀가 점지한 운세 & 노래 🎧</div>
 
@@ -63,9 +225,11 @@
     <div id="meta" class="meta">하루 1회 뽑기 · 첫 사용 대기 중...</div>
 
     <button id="fortune-btn" class="btn" onclick="generateFortune()">오늘의 운세 뽑기 🔮 (하루 1번)</button>
-    <button id="reset-btn" class="btn reset-btn" onclick="resetFortune()">🔐 보선녀 전용 초기화</button>
 
-    <div class="credit">Made with 💖 by 보선녀</div>
+    <div class="credit">
+      Made with 💖 by 보선녀  
+      <button class="btn reset-btn" onclick="resetFortune()">💋 보선녀 리셋 모드</button>
+    </div>
   </div>
 
   <script>
@@ -102,13 +266,13 @@
       document.getElementById("fortune-btn").textContent="오늘 운세는 완료되었습니다 🔒";
     }
 
-    function resetFortune(){
-      const pw=prompt("🔐 보선녀 비밀번호를 입력하세요:");
-      if(pw==="0405"){
+    function resetFortune() {
+      const input = prompt("🔐 비밀번호를 입력하세요 (보선녀 전용)");
+      if (input === "0405") {
         localStorage.removeItem(STORAGE_KEY);
-        alert("✅ 초기화 완료! 새 운세를 다시 뽑을 수 있습니다.");
+        alert("💋 초기화 완료! 다시 운세를 점지할 수 있습니다.");
         location.reload();
-      } else if(pw!==null){
+      } else if (input !== null) {
         alert("❌ 비밀번호가 틀렸습니다. 접근 불가!");
       }
     }
