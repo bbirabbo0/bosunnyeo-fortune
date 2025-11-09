@@ -1,0 +1,286 @@
+  <script>
+    // === 보선녀 커스텀 운세 데이터 ===
+    const data = [
+      {
+        fortune: "오늘 머리에서 말린 오징어 냄새가 나는 날이네요. 머리좀 빡빡 감으시길..",
+        songTitle: "《오징어외계인》-이글파이브",
+        songLine: "그의 먹물 쏴아쏴아 윽!"
+      },
+      {
+        fortune: "머뭇거리면, 쟁취할 수 없지요. 망설이지 말도록 노력하세요.",
+        songTitle: "《딸기》-삐삐밴드",
+        songLine: "좋아 좋아 좋아 딸기가 좋아"
+      },
+      {
+        fortune: "누구에게 계속 치여사는 것 같네요? 그 사람을 생각하는 것 보다는 당신을 더 소중히 여기는 게 더 좋을 거예요! 당신이 행복해야 하는 게 우선순위니까요!!!",
+        songTitle: "《5분 대기조》-DJ DOC",
+        songLine: "드디어 삐삐가 울린다 난 너를 향해 달려가야 해"
+      },
+      {
+        fortune: "오늘 화나는 일이 있었나요? 아니면 곧 생길 것 같은데ㅋ, 이런 날에는 화를 분출하는 것도 좋은 방법이라구여... 너무 묻어놓지 마시고 배출하세요 오늘은 제가 용서할테니까요.",
+        songTitle: "《나이가 든다는게 화가 나》-김충훈",
+        songLine: "늙어간다는게 창피한게 아닌데~"
+      },
+      {
+        fortune: "오늘 돈이랑 당신 조금 관련 있어 보이는데요? 혼자 쓸 생각 말고 친구들에게도 나눠주시라구요!! 베푸는 만큼 배로 돌아올지도?",
+        songTitle: "《나만의 회상》-아낌없이 주는 나무",
+        songLine: "세월이 흐르면 사랑의 그리움도 아름답게 기억하겠지."
+      },
+      {
+        fortune: "운이 좋은 날로 보입니다. 고양이에게 간택을 당하거나, 맞을 뻔한 새 똥을 친구가 대신 맞을 수 있는 날입니다. 즐기세요~~",
+        songTitle: "《운이 좋았지》-권진아",
+        songLine: "나는 운이 좋았지."
+      },
+      {
+        fortune: "오늘은 약간 검은색을 피하는 게 좋겠어요. 새까만 선택보단 조금 화사한 쪽으로!",
+        songTitle: "《검은 고양이 네로》-터보",
+        songLine: "야옹야옹 네로네로"
+      },
+      {
+        fortune: "오늘 여자를 조심하세요. 한 여성의 눈과 마주치면 당신은 그녀의 것이 될 수도... 후후",
+        songTitle: "《같이 살자》-김지수, 박보람",
+        songLine: "부서질 듯 위험한 우린 운명일까."
+      },
+      {
+        fortune: "달콤한 향이 나는 날이에요. 당신의 매력이 잔뜩 발동 중! 시선 즐기면서 당당하게 가세요.",
+        songTitle: "《Kiss》-강산에",
+        songLine: "달콤한 꿈을 꾸듯이 너에게 닿아"
+      },
+      {
+        fortune: "오늘 힘든 여정이 보이지만, 여기까지 버틴 당신이라면 충분히 지나갈 파도입니다.",
+        songTitle: "《WHEN I MOVE》-KARA",
+        songLine: "When I move, 너의 손을 잡고"
+      },
+      {
+        fortune: "오늘은 춤춰야 풀리는 날. 우울하면 음악부터 틀고 몸을 흔드세요.",
+        songTitle: "《리듬 속에 그 춤을》-김완선",
+        songLine: "리듬 속에 몸을 맡겨"
+      },
+      {
+        fortune: "돈 쓸 일이 많겠지만, 조금만 절제하면 곧 진짜 원하던 걸 손에 넣을 수 있어요.",
+        songTitle: "《야! 야! 야!》-팝핀현준",
+        songLine: "어제도 미래도 네 것이야"
+      },
+      {
+        fortune: "너무 앞만 보고 달리는 것도 좋지 않아요. 잠깐 멈춰서 추억도 한번 안아주세요.",
+        songTitle: "《안녕 자두야 엔딩송》-김기원",
+        songLine: "흘러가는 시간, 지나가는 오늘"
+      },
+      {
+        fortune: "무엇인진 잘 모르겠지만 정리가 필요해보입니다. 인간관계, 폴더, 책상, 마음… 하나만 정리해도 숨통 트여요.",
+        songTitle: "《청소》-The Ray",
+        songLine: "그 어떤 기억도 버릴 자신이 없죠."
+      },
+      {
+        fortune: "포기하려던 게 있다면, 오늘은 한 번만 더 붙잡아 보세요. 네 꿈은 생각보다 튼튼해요.",
+        songTitle: "《스무살의 비망록》-스크림",
+        songLine: "하늘을 보면 더 커다란 꿈이 있어"
+      },
+      {
+        fortune: "오늘은 약간 운이 없어 보이지만, 그건 내일 큰 웃음을 위한 빌드업입니다.",
+        songTitle: "《이번은 그냥 운이 나빴어》-뮤라, 냐무야호",
+        songLine: "다음엔 정말 좋을 거야."
+      },
+      {
+        fortune: "실수가 많아도 괜찮아요. 오늘은 당신의 허당미가 찐 매력 포인트.",
+        songTitle: "《달리 함께》-윤하",
+        songLine: "덜 완벽한 내 모습 괜찮아."
+      },
+      {
+        fortune: "당신을 시기하는 기운이 느껴지지만, 당신이 웃으면 다 도망갑니다. 웃으면서 씹어먹어요.",
+        songTitle: "《너나 잘해》-에일리",
+        songLine: "내 걱정 말고 너나 잘해."
+      },
+      {
+        fortune: "사랑하는 사람이 있나요? 오늘은 힌트 뿌리기 좋은 날입니다. 티를 살짝 내보세요.",
+        songTitle: "《철수야 사랑해》-이정현",
+        songLine: "철수야 사랑해"
+      },
+      {
+        fortune: "오늘 사고 싶은 예쁜 구두나 옷이 있다면, 정말 갖고 싶던 거라면 질러도 됩니다. 나를 위해서라면.",
+        songTitle: "《빨간 구두 아가씨》-B.Big Brother's",
+        songLine: "아가씨 잠깐만, 내 말 좀 들어봐."
+      },
+      {
+        fortune: "오늘 스스로에 대한 점수가 낮게 느껴질 수 있어요. 근데 주변 사람 기준으로 당신은 이미 만점이라는 사실.",
+        songTitle: "《못난이 콤플렉스》-영턱스클럽",
+        songLine: "그래도 넌 참 소중한 사람"
+      }
+    ];
+
+    // 행운의 색 후보
+    const luckyColors = [
+      "복숭아 핑크", "라일락 퍼플", "에메랄드 그린",
+      "크림 베이지", "하늘빛 블루", "선셋 오렌지", "매혹적인 빨강", "새초롬한 주황",
+      "your 오줌 like 노랑", "늠름한 초록", "아리따운 바다", "행복한 브라운",
+      "수상한 하늘", "자색고구마의 껍질", "그레이새끼야", "감자같은 니얼굴",
+      "똥 못쌌어요? 얼굴색이.. 창백한 연두색", "말차의 아름다움", "딸기라떼의 외로움",
+      "색을 빼앗겨버린 연한 레드", "오렌지업 오렌지업", "개나리 개나리 너는 나의 것",
+      "쑥스럼 많은 그린", "용감한 블루", "무서운 마녀의 립스틱 색은 퍼플",
+      "조심해, 분홍은 나의 팬티", "속삭이는 그대의 입맞춤은 어둡다. 블랙",
+      "레이디버그의 남편은 블랙", "넌 누구니 이슬이의 팬티는 하양색",
+      "밤하늘 네이비", "민트그린", "로즈골드", "화이트 아이보리",
+      "코코넛 밀크 화이트", "복숭아뼈의 분홍", "포근한 이불색", "미소 짓는 라벤더",
+      "잔망한 체리블라썸", "달콤한 솜사탕 민트", "쑥떡의 부드러움", "다정한 연보라",
+      "너도나도 레드", "나 오늘 좀 예쁨 베이지", "눈치 없는 블루",
+      "피곤한 회사원 회색", "불타는 고추장색", "이빵색 베이지",
+      "새벽 안개의 옅은 회색", "잊혀진 달빛 블루", "꿈결의 라일락",
+      "마음속 틈새 네이비", "눈물 한 방울 연청색", "파릇한 파김치 초록",
+      "대나무숲 속의 바람색", "따뜻한 흙의 갈색", "가을 끝자락 노을빛",
+      "봄냄새나는 들꽃 핑크"
+    ];
+
+    // 행운의 동물 후보
+   const luckyAnimals = [
+  "고양이", "강아지", "토끼", "코끼리", "대머리독수리", "고릴라", "비버", "젖소", "너구리", "타조",
+  "후라이드치킨", "불닭볶음면", "불곰", "참치", "악어", "까치", "늑대", "기니피그", "치타", "고라니",
+  "낙지", "공작새", "여우", "판다", "고래", "부엉이", "수달", "고슴도치", "참새", "두더지", "사슴",
+  // 🐉 보선녀 확장판
+  "드래곤", "용가리", "피카츄", "젤리곰", "팬더곰", "펭귄", "알파카", "두루미", "코알라", "앵무새",
+  "물범", "너드돼지", "코뿔소", "햄스터", "돌고래", "펜도라여우", "초콜릿하이에나", "수줍은 하마",
+  "깡총깡총 사슴벌레", "도도새", "고등어", "연어", "치킨너겟", "청룡", "백호", "주작", "현무",
+  "붕어빵", "타코야끼문어", "단짠감자", "수박펭귄", "흰수염고래", "해달", "돌핀보이", "청설모",
+  "반짝이는 메추라기", "계란말이앵무", "나태한 달팽이", "엉뚱한 오리너구리", "스윗베이비호랑이",
+  "작고 소심한 너구리", "냉면사슴", "커피마시는 곰", "치즈냠냠쥐", "라면수달", "가오리", "도롱뇽",
+  "꿀벌", "나방", "거북이", "참새의 사촌", "리듬타는 앵무새", "우아한 백조", "망상하는 금붕어"
+];
+
+
+    // 동물 → 이모지 매핑
+    const animalEmojis = {
+      "고양이": "🐱",
+      "강아지": "🐶",
+      "토끼": "🐰",
+      "코끼리": "🐘",
+      "대머리독수리": "🦅",
+      "고릴라": "🦍",
+      "비버": "🦫",
+      "젖소": "🐄",
+      "너구리": "🦝",
+      "타조": "🐦",
+      "후라이드치킨": "🍗",
+      "불닭볶음면": "🍜",
+      "불곰": "🐻",
+      "참치": "🐟",
+      "악어": "🐊",
+      "까치": "🐦",
+      "늑대": "🐺",
+      "기니피그": "🐹",
+      "치타": "🐆",
+      "고라니": "🦌",
+      "낙지": "🐙",
+      "공작새": "🦚",
+      "여우": "🦊",
+      "판다": "🐼",
+      "고래": "🐋",
+      "부엉이": "🦉",
+      "수달": "🦦",
+      "고슴도치": "🦔",
+      "참새": "🐤",
+      "두더지": "🐾",
+      "사슴": "🦌",
+      "드래곤": "🐲",
+      "용가리": "🐉",
+      "피카츄": "⚡",
+      "젤리곰": "🧸",
+      "펭귄": "🐧",
+      "알파카": "🦙",
+      "코알라": "🐨",
+      "앵무새": "🦜",
+      "물범": "🦭",
+      "햄스터": "🐹",
+      "돌고래": "🐬",
+      "꿀벌": "🐝",
+      "거북이": "🐢",
+      "우아한 백조": "🦢",
+      "망상하는 금붕어": "🐠"
+    };
+
+    const STORAGE_KEY = "bosunnyeo_fortune_v1";
+
+    function getTodayKey() {
+      const now = new Date();
+      return (
+        now.getFullYear() +
+        "-" +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(now.getDate()).padStart(2, "0")
+      );
+    }
+
+    // 저장된 오늘 운세 불러오기
+    function loadTodayFortune() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        const today = getTodayKey();
+        if (saved && saved.date === today) {
+          applyFortune(saved, false);
+          const btn = document.getElementById("fortune-btn");
+          btn.classList.add("disabled");
+          btn.textContent = "오늘 운세는 이미 점지되었습니다 🔒";
+          document.getElementById("meta").textContent =
+            `오늘(${today}) 운세는 이미 보선녀가 점지했어요.`;
+        }
+      } catch (e) {
+        console.warn("load error", e);
+      }
+    }
+
+    // 화면에 적용
+    function applyFortune(dataObj, withMeta) {
+      document.getElementById("fortune").textContent = dataObj.fortune;
+      document.getElementById("song-title").textContent = dataObj.songTitle;
+      document.getElementById("song-line").textContent = dataObj.songLine;
+      document.getElementById("lucky-color").textContent = dataObj.luckyColor;
+      document.getElementById("lucky-animal").textContent = dataObj.luckyAnimal;
+
+      if (withMeta) {
+        const now = new Date();
+        const timeString = now.toLocaleString("ko-KR");
+        document.getElementById("meta").textContent =
+          `랜덤 운세 확정 시간 : ${timeString}`;
+      }
+    }
+
+    // 하루 1회 운세 생성
+    function generateFortune() {
+      const btn = document.getElementById("fortune-btn");
+      const today = getTodayKey();
+
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved && saved.date === today) {
+        applyFortune(saved, false);
+        btn.classList.add("disabled");
+        btn.textContent = "오늘 운세는 이미 정해졌어요 🔒";
+        document.getElementById("meta").textContent =
+          `오늘 것은 오늘 것! 내일 다시 오세요ㅋ 욕심꾸러기 같으니라고 🌙`;
+        return;
+      }
+
+      const pick = data[Math.floor(Math.random() * data.length)];
+      const luckyColor =
+        luckyColors[Math.floor(Math.random() * luckyColors.length)];
+      const rawAnimal =
+        luckyAnimals[Math.floor(Math.random() * luckyAnimals.length)];
+      const emoji = animalEmojis[rawAnimal] || "✨";
+      const luckyAnimal = `${emoji} ${rawAnimal}`;
+
+      const result = {
+        date: today,
+        fortune: pick.fortune,
+        songTitle: pick.songTitle,
+        songLine: pick.songLine,
+        luckyColor,
+        luckyAnimal
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+      applyFortune(result, true);
+
+      btn.classList.add("disabled");
+      btn.textContent = "오늘 운세는 완료되었습니다 🔒";
+    }
+
+    loadTodayFortune();
+  </script>
